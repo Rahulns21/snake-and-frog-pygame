@@ -111,6 +111,7 @@ class Main:
         self.check_fail()
 
     def draw_elements(self):
+        self.draw_grass()
         self.fruit.draw_fruit()
         self.snake.draw_snake()
 
@@ -134,15 +135,29 @@ class Main:
         pygame.quit()
         sys.exit()
 
+    def draw_grass(self):
+        for row in range(cell_number):
+            if row % 2 == 0:
+                for col in range(cell_number):
+                    if col % 2 == 0:
+                        grass_rect = pygame.Rect(col * cell_size, row * cell_size, cell_size, cell_size)
+                        pygame.draw.rect(screen, grass_color, grass_rect)
+            else:
+                for col in range(cell_number):
+                    if col % 2 != 0:
+                        grass_rect = pygame.Rect(col * cell_size, row * cell_size, cell_size, cell_size)
+                        pygame.draw.rect(screen, grass_color, grass_rect)
+
 pygame.init()
 app_name = 'Snake and Frog' # modify pygame window title 
 pygame.display.set_caption(app_name) 
-cell_size = 40
+cell_size = 30
 cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
 clock = pygame.time.Clock()
 fps = 60
 green_bg = (101, 254, 8)
+grass_color = (120, 255, 80)
 fruit_color = (159, 43, 104)
 snake_color = (255, 8, 0)
 frog = pygame.image.load('graphics/bluefrog.png').convert_alpha()
