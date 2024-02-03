@@ -50,7 +50,7 @@ Before running the game, make sure you have the following installed:
 
 ## Customization
 
-Feel free to customize the game by modifying the following parameters in the `snake_and_frog_game.py` file:
+Feel free to customize the game by modifying the following parameters in the `main.py` file:
 
 - Set the initial size of the snake.
 - Control the frames per second (FPS) to adjust the game speed.
